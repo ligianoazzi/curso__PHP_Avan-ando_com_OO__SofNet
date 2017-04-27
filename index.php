@@ -1,12 +1,12 @@
 <?php
 
-$db = new \PDO("mysql:host=localhost;dbname=test_oo","root","root");
+$db = new \PDO("mysql:host=localhost;dbname=test","root","root");
 
 $query = "select * from clientes";
 
 $stmt = $db->prepare($query);
 
-$smtp->execute();
+$stmt->execute();
 
 $list = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
