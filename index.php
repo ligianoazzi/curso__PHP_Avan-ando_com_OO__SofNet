@@ -1,14 +1,12 @@
 <?php
 
+require_once "Product.php";
+
 $db = new \PDO("mysql:host=localhost;dbname=test","root","root");
 
-$query = "select * from clientes";
+$product = new Product($db);
 
-$stmt = $db->prepare($query);
-
-$stmt->execute();
-
-$list = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+$list = $product->lista();
 
 var_dump($list);
 
