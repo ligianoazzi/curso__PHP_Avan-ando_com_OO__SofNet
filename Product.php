@@ -5,9 +5,12 @@ class Product
 
 	private $db;
 	
-	public function __construct($db){
-		$this->db = $db;
+	//public function __construct(\PDO $db){
+	public function __construct(IConn $db){	
+		//$this->db = $db;
+		$this->db = $db->connect();
 	}
+	// agora o tipo do parametro não é mais diretamente o PDO, e sim IConn
 	
 	public function lista()
 	{
