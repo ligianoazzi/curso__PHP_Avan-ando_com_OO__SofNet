@@ -11,12 +11,16 @@ use Pimple\Container;
 
 $container = new Container();
 
-$container['date'] = function(){
-	//return new \DateTime;
-	return "ola";
-};
+$container['date'] = $container->factory(function(){
+	return date('H:i:s');
+});
+//usando a factory, cria 2 objetos, caso contrário, cria um e o re-usa 
 
-var_dump($container['date']);
+@var_dump($container['date']);
+echo "<br>";
+echo "<br>";
+sleep(5);
+@var_dump($container['date']);
 
 
 
