@@ -7,6 +7,19 @@ require_once "Container.php";*/
 //troquei o codigo acima, pelo abaixo
 require_once "../vendor/autoload.php";
 
+use Pimple\Container;
+
+$container = new Container();
+
+$container['date'] = function(){
+	//return new \DateTime;
+	return "ola";
+};
+
+var_dump($container['date']);
+
+
+
 
 //$db = new \PDO("mysql:host=localhost;dbname=ligiano","root","root");
 //$db = new Conn("mysql:host=localhost; dbname=ligiano", "root", "root");
