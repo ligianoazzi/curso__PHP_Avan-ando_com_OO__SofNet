@@ -4,14 +4,18 @@
 
 // registrando serviço de conexão
 $container['conn'] = function($c){
-	return new \Source\Conn($c['dsn'], $c['user'], $c['pass']);
+    return new \Source\Conn($c['dsn'],$c['user'],$c['pass']);
 };
 
 // registrando serviço para trazer serviços
-$container['product'] = function($container) {
-	return new \Source\Product($container['conn']);
+$container['product'] = function(){
+    return new \Source\Product;
 };
 
-$list = $container['product']->lista();
+$container['ServiceProduct'] = function($c){
+    return new \Source\ServiceProduct($c['conn'],$c['product']);
+};
+
+
 
 ?>
